@@ -26,6 +26,10 @@ You can either connect via ssh to the qemu raspberry rasbian system or get the q
   1. Run a background container as server or start existing one.
 
         docker start raspberrypi || docker run -d --name raspberrypi -p 2222:2222 -p 80:80 -p 443:443 --privileged desktopcontainers/raspberrypi
+        
+        1.1 Using another image via mount
+        docker run --rm --name raspberrypi -v ~/Downloads/retropie-buster-4.7.1-rpi2_3.img:/images/raspberry.img -p 80:80 -p 5901:5901 -d --privileged desktopcontainers/raspberrypi
+
      
   2.1 Connect directly to the qemu raspberry via ssh. (Keep an eye on docker healthcheck status - ssh is available when it's healthy)
   
